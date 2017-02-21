@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CO2 Monitoring System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- For clock -->
+    <link rel="stylesheet" type="text/css" href="../clock/jquery.flipcountdown.css" />
+    <script type="text/javascript" src="../clock/jquery.flipcountdown.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">CO2 Monitoring System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+
+            <ul class="nav navbar-top-links navbar-right">
+                
+            </ul>
+            
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Data Display<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="summary.html">Summary</a>
+                                </li>
+                                <li>
+                                    <a href="all_data.html">All Data</a>
+                                </li>
+                                <li>
+                                    <a href="by_node.html">Show Data By Node</a>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="node_management.html"><i class="fa fa-table fa-fw"></i>Node Management</a>
+                        </li>
+                        <!-- <li>
+                            <a href="about.html"><i class="fa fa-edit fa-fw"></i>About</a>
+                        </li> -->
+                        <li>
+                            <div class="col-lg-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                                <div class="text-center">Server Clock</div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <div id="retroclockbox1"></div>
+                                            <script>
+                                                jQuery(function($){
+                                                    $("#retroclockbox1").flipcountdown({
+                                                        size:"sm"
+                                                    });
+                                                })
+                                                jQuery(function($){
+                                                    $('#retroclockbox1').flipcountdown();
+                                                })
+                                            </script>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-lg-12">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                                <div class="text-center">Server Clock</div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <div class="panel-footer">
+                                            <div id="retroclockbox2"></div>
+                                            <script>
+                                                jQuery(function($){
+                                                    $("#retroclockbox2").flipcountdown({
+                                                        size:"sm"
+                                                    });
+                                                })
+                                                jQuery(function($){
+                                                    $('#retroclockbox2').flipcountdown();
+                                                })
+                                            </script>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- end navigation -->
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <div class="row">
+                        <div class="col-lg-10">
+                        Node Management
+                        </div>
+                        <div class="col-lg-2">
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Node</button>
+                        </div>
+                        </div>
+                    </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <!-- <div class="col-lg-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Non Active Node
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-5">Last data id</div>
+                                <div class="col-lg-1">:</div>
+                                <div class="col-lg-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">Last time</div>
+                                <div class="col-lg-1">:</div>
+                                <div class="col-lg-5">10</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">Description</div>
+                                <div class="col-lg-1">:</div>
+                                <div class="col-lg-5">What the fuck are you doing bro?</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">Position</div>
+                                <div class="col-lg-1">:</div>
+                                <div class="col-lg-5">10</div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-3"></div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-link"></i></button>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- /.col-lg-4 -->
+                
+                <!-- /.col-lg-4 -->
+                
+                <!-- /.col-lg-4 -->
+            </div>
+            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- node management jquery -->
+    <script type="text/javascript" src="../js/node-management.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!--  ====== ADD MODAL FORM ====== -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add Form</h4>
+          </div>
+          <div class="modal-body">
+             <form>
+                  <div class="form-group">
+                    <label for="email">Node ID:</label>
+                    <input type="email" class="form-control" id="new_id">
+                  </div>
+                  <div class="form-group">
+                    <label for="comment">Node Description</label>
+                    <textarea class="form-control" rows="5" id="new_desc"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Node Position</label>
+                    <input type="textarea" row="3" class="form-control" id="new_pos">
+                  </div>
+                  <button id="add_node" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a style="visibility: hidden;" id="cbcb"></a>
+
+    <!-- SCRIPT to add node -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		
+    		$('#add_node').click(function(){
+    			var add_url = 'http://54.218.36.55/api/v01/post/node/add';
+    			var new_data = {
+    				'id' : $('#new_id').val(),
+    				'desc' : $('#new_desc').val(),
+    				'pos' : $('#new_pos').val()
+    			};
+    			$.ajax({
+				   url: add_url,
+				   type: 'POST',
+				   contentType:'application/json',
+				   data: JSON.stringify(new_data),
+				   dataType:'json',
+				   success: function(data){
+				     //On ajax success do this
+				     alert("Adding new node is success!");
+				      },
+				   error: function(xhr, ajaxOptions, thrownError) {
+				      //On error do this
+				        if (xhr.status == 200) {
+
+				            alert(ajaxOptions);
+				        }
+				        else {
+				            alert("Adding new node is success!");
+				            //alert(thrownError);
+				        }
+				    }
+				 });
+    			
+			});
+		});
+    </script>
+
+    <!--  ====== EDIT MODAL FORM ====== -->
+    <div id="editModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Form</h4>
+          </div>
+          <div class="modal-body">
+             <form>
+                  <div class="form-group">
+                    <label for="text">Node ID:</label>
+                    <input type="text" class="form-control" id="a_nd_id">
+                  </div>
+                  <div class="form-group">
+                    <label for="comment">Node Description</label>
+                    <textarea class="form-control" rows="5" id="a_nd_desc"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="text">Node Position</label>
+                    <input type="text" class="form-control" id="a_nd_pos">
+                  </div>
+                  <button id="edit_node" type="submit" class="btn btn-primary">Submit</button>
+                  <a style="visibility: hidden;" id="a_nd_last_dataid"></a>
+                  <a style="visibility: hidden;" id="a_nd_last_time"></a>
+                  <a id="current_node_id" style="visibility: hidden;"></a>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('#edit_node').click(function(){
+    			var del_url = 'http://54.218.36.55/api/v01/post/node/delete';
+    			var add_url = 'http://54.218.36.55/api/v01/post/node/add';
+
+    			var del_data = {id:$('#current_node_id').val()};
+    			if($('#current_node_id').val()==$('#a_nd_id').val()){
+    				var new_data = {
+	    				id : $('#a_nd_id').val(),
+	    				desc : $('#a_nd_desc').val(),
+	    				last_dataid : $('#current_node_id'),
+	    				last_time : $('#a_nd_last_time').val(),
+	    				pos : $('#a_nd_pos').val()
+	    			};
+    			}else{
+    				var new_data = {
+	    				id : $('#a_nd_id').val(),
+	    				desc : $('#a_nd_desc').val(),
+	    				last_dataid : $('#a_nd_last_dataid'),
+	    				last_time : $('#a_nd_last_time').val(),
+	    				pos : $('#a_nd_pos').val()
+	    			};
+    			}
+
+    			$.ajax({
+				   url: del_url,
+				   type: 'POST',
+				   contentType:'application/json',
+				   data: JSON.stringify(del_data),
+				   dataType:'json',
+				   success: function(data){
+				     //On ajax success do this
+				     alert("Adding new node is success!");
+				      },
+				   error: function(xhr, ajaxOptions, thrownError) {
+				      //On error do this
+				        // if (xhr.status == 200) {
+
+				        //     alert(ajaxOptions);
+				        // }
+				        // else {
+				        //     alert('Ada yang salah');
+				        //     alert(thrownError);
+				        // }
+				    }
+				 });
+
+    			$.ajax({
+				   url: add_url,
+				   type: 'POST',
+				   contentType:'application/json',
+				   data: JSON.stringify(new_data),
+				   dataType:'json',
+				   success: function(data){
+				     //On ajax success do this
+				     alert("Updated new node is success!");
+				      },
+				   error: function(xhr, ajaxOptions, thrownError) {
+				      //On error do this
+				        if (xhr.status == 200) {
+
+				            alert(ajaxOptions);
+				        }
+				        else {
+				            alert('Node is updated');
+				            //alert(thrownError);
+				        }
+				    }
+				 });
+
+    			
+    		});
+    	});
+    </script>
+
+    <div id="deleteModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete Node</h4>
+          </div>
+          <div class="modal-body">
+             <form>
+                  <div class="form-group">
+                    <label for="text">Selected Node:</label>
+                    <input type="text" class="form-control" id="selected_node_id" readonly="readonly">
+                  </div>
+                  <div class="form-group">
+                    <label for="comment">Node Description</label>
+                    <textarea class="form-control" rows="5" id="selected_node_desc" readonly="readonly"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="text">Node Position</label>
+                    <input type="text" class="form-control" id="selected_node_pos" readonly="readonly">
+                  </div>
+                  <div>
+                  	<label>Are you sure to delete this node?</label>
+                  </div>
+                  <button id="delete_node" type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT to delete node -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		
+    		$('#delete_node').click(function(){
+    			var del_url = 'http://54.218.36.55/api/v01/post/node/delete';
+    			var del_data = {
+    				id : $('#selected_node_id').val()
+    			};
+    			$.ajax({
+				   url: del_url,
+				   type: 'POST',
+				   contentType:'application/json',
+				   data: JSON.stringify(del_data),
+				   dataType:'json',
+				   success: function(data){
+				     //On ajax success do this
+				     alert("Adding new node is success!");
+				      },
+				   error: function(xhr, ajaxOptions, thrownError) {
+				      //On error do this
+				        if (xhr.status == 200) {
+
+				            alert(ajaxOptions);
+				        }
+				        else {
+				            alert('Node is successfully deleted!');
+				            //alert(thrownError);
+				        }
+				    }
+				 });
+    			
+			});
+		});
+    </script>
+
+</body>
+
+</html>
