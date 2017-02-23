@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
-    var jsonURL = 'http://1231co2webservice.ddns.net/api/v01/get/data';
-    var jsonURLNode = 'http://1231co2webservice.ddns.net/api/v01/get/node';
+    var jsonURL = 'http://54.202.17.79/api/v01/get/data';
+    var jsonURLNode = 'http://54.202.17.79/api/v01/get/node';
 
     var counter = 0;
     var itemsNode;
@@ -87,12 +87,6 @@ $(document).ready(function() {
             jQuery('<div/>', {
                 id:'pbody'+node[i].id,
                 class: 'panel-body'
-            }).appendTo('#node'+node[i].id);
-
-            //Level 5 (Panel Footer)
-            jQuery('<div/>', {
-                id:'pfooter'+node[i].id,
-                class: 'panel-footer'
             }).appendTo('#node'+node[i].id);
 
             //Body Row CO2
@@ -184,77 +178,6 @@ $(document).ready(function() {
                 class: 'col-lg-5',
                 text:'-'
             }).appendTo('#lintensity'+node[i].id);
-
-
-            //Row 1
-            jQuery('<div/>', {
-                id: 'rf1'+node[i].id,
-                class: 'row'
-            }).appendTo('#pfooter'+node[i].id);
-
-            //col 1
-            jQuery('<div/>', {
-                id: 'cf1'+node[i].id,
-                class: 'col-lg-4'
-            }).appendTo('#rf1'+node[i].id);
-            //col 2
-            jQuery('<div/>', {
-                id: 'cf2'+node[i].id,
-                class: 'col-lg-3'
-            }).appendTo('#rf1'+node[i].id);
-            //col 3
-            jQuery('<div/>', {
-                id: 'cf3'+node[i].id,
-                class: 'col-lg-5'
-            }).appendTo('#rf1'+node[i].id);
-            
-            //Row 2
-            jQuery('<div/>', {
-                id: 'rf2'+node[i].id,
-                class: 'row'
-            }).appendTo('#cf3'+node[i].id);
-
-            //col 11
-            jQuery('<div/>', {
-                id: 'crf1'+node[i].id,
-                class: 'col-lg-3'
-            }).appendTo('#rf2'+node[i].id);
-            //col 22
-            jQuery('<div/>', {
-                id: 'crf2'+node[i].id,
-                class: 'col-lg-3'
-            }).appendTo('#rf2'+node[i].id);
-            //col 33
-            jQuery('<div/>', {
-                id: 'crf3'+node[i].id,
-                class: 'col-lg-3'
-            }).appendTo('#rf2'+node[i].id);
-
-            //Start here for button
-            jQuery('<button/>', {
-                id: 'crfc1'+node[i].id,
-                type: 'button',
-                class: 'btn btn-primary btn-circle',
-                data-toggle:'modal',
-                data-target:'#editModal'
-            }).appendTo('#crf1'+node[i].id);
-
-            jQuery('<button/>', {
-                id: 'crfc2'+node[i].id,
-                type: 'button',
-                class: 'btn btn-primary btn-circle',
-                data-toggle:'modal',
-                data-target:'#editModal'
-            }).appendTo('#crf2'+node[i].id);
-
-            jQuery('<button/>', {
-                id: 'crfc3'+node[i].id,
-                type: 'button',
-                class: 'btn btn-primary btn-circle',
-                data-toggle:'modal',
-                data-target:'#editModal'
-            }).appendTo('#crf3'+node[i].id);
-            
 
             if(((i+1)%3)==0)
             {
