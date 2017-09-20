@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
-    var jsonURL = 'http://co2webservice.click/api/v01/get/data';
-    var jsonURLNode = 'http://co2webservice.click/api/v01/get/node';
+    var jsonURL = 'http://1231co2webservice.ddns.net/api/v01/get/data';
+    var jsonURLNode = 'http://1231co2webservice.ddns.net/api/v01/get/node';
 
     var counter = 0;
     var itemsNode;
